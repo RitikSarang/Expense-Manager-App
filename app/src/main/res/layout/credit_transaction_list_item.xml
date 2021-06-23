@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeWidth="1dp"
+    app:strokeColor="#cccccc"
+    app:cardCornerRadius="3dp"
+    app:contentPadding="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Milk"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="30 May, 2020"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtItem" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="7dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/txtDate"
+            app:layout_constraintStart_toEndOf="@+id/txtDate"
+            app:layout_constraintTop_toTopOf="@+id/txtDate" />
+
+        <TextView
+            android:id="@+id/txtTransactionType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Cash"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@id/txtItem" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="+200"
+            android:textAlignment="textStart"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTransactionType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtItem" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

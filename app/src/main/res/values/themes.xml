@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Expense" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#E89124</item>
+        <item name="colorPrimaryVariant">#F4A33B</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">#F4A33B</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+
+        <style name="Green" parent="TextAppearance.AppCompat">
+            <item name="android:backgroundTint">#00FF00</item>
+            <item name="android:textColor">#FFFFFF</item>
+            <item name="android:padding">16dp</item>
+        </style>
+
+    <style name="Red" parent="TextAppearance.AppCompat">
+        <item name="android:backgroundTint">#E53935</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+</resources>

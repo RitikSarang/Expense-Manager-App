@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.fragment.AllFragment">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lbNetBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="20dp"
+            android:text="NET BALANCE"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNetBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="20dp"
+            android:text="0"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+            app:layout_constraintTop_toBottomOf="@id/lbNetBalance" />
+
+        <TextView
+            android:id="@+id/lbCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:elevation="20dp"
+            android:text="CASH"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+            app:layout_constraintTop_toBottomOf="@id/txtNetBalance" />
+
+        <TextView
+            android:id="@+id/lbCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="20dp"
+            android:textColor="@color/green"
+            android:text="CREDIT"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+            app:layout_constraintTop_toBottomOf="@id/lbCash" />
+
+        <TextView
+            android:id="@+id/lbDebit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="20dp"
+            android:text="DEBIT"
+            android:textSize="14sp"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+            app:layout_constraintTop_toBottomOf="@id/lbCredit" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lbNetBalance" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pieChart"/>
+
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="UPCOMING TRANSACTIONS"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_listUpcomingTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt1"
+        tools:listitem="@layout/cash_transaction_list_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_monthCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+
+            android:layout_marginTop="20dp"
+            tools:listitem="@layout/month_card_list_item" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.MonthlyFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:backgroundTint="@color/lightMango"
+        app:cardElevation="15dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChartMonthly"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lbNetBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:elevation="20dp"
+        android:text="NET BALANCE"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNetBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:elevation="20dp"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+        app:layout_constraintTop_toBottomOf="@id/lbNetBalance" />
+
+    <TextView
+        android:id="@+id/lbAmountSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:elevation="20dp"
+        android:text="AMOUNT SAVED"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+        app:layout_constraintTop_toBottomOf="@+id/pieChartMonthly" />
+
+    <TextView
+        android:id="@+id/txtAmountSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:text="25000.00"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lbAmountSaved"
+        app:layout_constraintStart_toStartOf="@+id/lbNetBalance"
+        app:layout_constraintTop_toBottomOf="@+id/lbAmountSaved" />
+
+    <TextView
+        android:id="@+id/lbAmountSpend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:elevation="20dp"
+        android:text="AMOUNT SPEND"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lbAmountSaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lbAmountSaved" />
+
+    <TextView
+        android:id="@+id/txtAmountSpend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:text="20000.00"
+        android:textColor="@color/red"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lbAmountSpend"
+        app:layout_constraintStart_toStartOf="@+id/lbAmountSpend"
+        app:layout_constraintTop_toBottomOf="@+id/lbAmountSpend" />
+
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:text="TRANSACTIONS THIS MONTH"
+        android:textAlignment="textStart"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_listMonthTransactions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt1"
+        app:layout_constraintStart_toStartOf="@+id/txt1"
+        app:layout_constraintTop_toBottomOf="@+id/txt1"
+        tools:listitem="@layout/cash_transaction_list_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>
