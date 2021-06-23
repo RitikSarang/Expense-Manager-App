@@ -1,10 +1,8 @@
 package com.example.expense.ui.fragment
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import com.example.expense.R
 import kotlinx.android.synthetic.main.fragment_starting.*

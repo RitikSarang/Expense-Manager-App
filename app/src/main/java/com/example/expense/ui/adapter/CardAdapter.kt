@@ -49,7 +49,7 @@ class CardAdapter(private val listener : (Long) -> Unit) : ListAdapter<MonthCard
                 } else {
                     txtErrorText.isVisible = false
                     cardViewBG.background.setTint(Color.GREEN)
-                    //cardViewBG.setBackgroundColor(Color.GREEN)
+
                 }
 
                 if (item1 == -1) {

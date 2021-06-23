@@ -1,8 +1,6 @@
 package com.example.expense.ui.adapter
 
 
-import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expense.R
 import com.example.expense.ui.adapter.CalendarAdapter.OnItemListener
-import java.time.LocalDate
+
 
 
 class CalendarAdapter(
@@ -33,7 +31,7 @@ class CalendarAdapter(
 
     override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         holder.dayOfMonth?.text = daysOfMonth!![position]
-        Log.i("checkendra", "onBindViewHolder: ${income?.size}: ${expense!!.size}")
+
         if (income!!.isNotEmpty()) {
             if (income!![position] == "") {
                 holder.income?.text = ""
@@ -42,29 +40,13 @@ class CalendarAdapter(
             }
         }
         if (expense!!.isNotEmpty()) {
-            //Log.i("checkendras", "onBindViewHolder: $position ${income!![position]}")
-            //Log.i("checkendra", "onBindViewHolder: $position : ${expense!![position]} size: ${income?.size} + ${expense?.size}")
-            //holder.income?.text = "+${income?.get(position)}"?:""
+
             if (expense!![position] == "") {
                 holder.expense?.text = ""
             } else {
                 holder.expense?.text = "-${expense!![position]}"
             }
-            //holder.expense?.text = "-${expense?.get(position)}"?:""
 
-            // Log.i("checkendra", "onBindViewHolder: ${daysOfMonth!![position]}")
-            /*if(income.isNotEmpty()) {
-            holder.income?.text = income[position].toString()
-        }else
-        {
-            holder.income?.text = ""
-        }
-        if(expense.isNotEmpty()) {
-            holder.expense?.text = expense[position].toString()
-        }else
-        {
-            holder.expense?.text = ""
-        }*/
         }
     }
 

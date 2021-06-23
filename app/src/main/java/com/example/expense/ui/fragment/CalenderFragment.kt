@@ -2,7 +2,6 @@ package com.example.expense.ui.fragment
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -12,16 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expense.R
 import com.example.expense.data.model.Transaction
-import com.example.expense.readableFormat
 import com.example.expense.ui.adapter.CalendarAdapter
 import com.example.expense.ui.viewmodel.TransactionViewModel
 import kotlinx.android.synthetic.main.fragment_calender.*
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.time.days
 
 
 class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.OnItemListener {
@@ -69,7 +65,7 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
             val blankSpaces = firstOfMonth.dayOfWeek.value
             //Formula bL + date -1 = result
             for (i in it.indices) {
-                Log.i("year", "incomeInMonth: ${selectedDate.year} , ${it[i].date.year} , ${((it[i].date.year.times(((selectedDate.year).toFloat()/it[i].date.year))).toInt()+1).toInt()}")
+
                 val lengthRoomDate = it[i].date.year.toString()
                 val lengthRoomDateForLocaleDate = selectedDate.year.toString()
                 var dateLastDigit = 0
@@ -84,47 +80,26 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
                         dateLocaleLastDigit = lengthRoomDateForLocaleDate[i] - '0'
                     }
                 }
-                Log.i("dateCount", "incomeInMonth: $dateLastDigit , $dateLocaleLastDigit")
+
                 if (selectedDate.monthValue == it[i].date.month + 1 && dateLastDigit == dateLocaleLastDigit) {
-                    Log.i(
-                        "expenses", "onCreate: ${it[i].date.year} : ${it[i].amount} "
-                    )
+
                     if (it[i].income) {
                         tempIndex.add(it[i].date.date)
-                        //correct same date value here only
+
                         tempValue.add(it[i].amount)
-                        //proper hai bas same dates ke value add karke dalna hai phir scene nhi hoga
+
                     }
                 }
             }
             if (tempIndex.isNotEmpty() && tempValue.isNotEmpty()) {
             val result = finalArr(tempIndex, tempValue)
             val resultIndex = finalArrIndex(tempIndex, tempValue)
-           /* result.forEachIndexed { index, i ->
-                Log.i(
-                    "jhal", "onCreate: ${result[index]}"
-                )
-            }
-            resultIndex.forEachIndexed { index, i ->
-                Log.i(
-                    "jhal", "onCreate: ${resultIndex[index]}"
-                )
-            }
-            tempIndex.forEachIndexed { index, i ->
-                Log.i(
-                    "expensesssss", "onCreate: ${tempIndex[index]}"
-                )
-            }
-            tempValue.forEachIndexed { index, i ->
-                Log.i(
-                    "expensesssss", "onCreate: ${tempValue[index]}"
-                )
-            }*/
+
             var count = 0
-            for (i in 0..41) {//proper hai
+            for (i in 0..41) {
                 if (count != resultIndex.size) {
                     if (i == blankSpaces + resultIndex[count] -1) {
-                        //final result crafting
+
                         tempIncome.add(result[count].toString())
                         count++
                     }else{
@@ -134,11 +109,7 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
                     tempIncome.add("")
                 }
             }
-           /* tempIncome.forEachIndexed { index, s ->
-                Log.i(
-                    "expensesssssss", "onCreate: $index : ${tempIncome[index]}"
-                )
-            }*/
+
         }}
         return tempIncome
     }
@@ -219,40 +190,21 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
                 if (selectedDate.monthValue == it[i].date.month + 1 && dateLastDigit==dateLocaleLastDigit) {
                     if (it[i].expense) {
                         tempIndex.add(it[i].date.date)
-                        //correct same date value here only
+
                         tempValue.add(it[i].amount)
-                        //proper hai bas same dates ke value add karke dalna hai phir scene nhi hoga
+
                     }
                 }
             }
             if (tempIndex.isNotEmpty() && tempValue.isNotEmpty()) {
                 val result = finalArr(tempIndex, tempValue)
                 val resultIndex = finalArrIndex(tempIndex, tempValue)
-                /*tempIndex.forEachIndexed { index, i ->
-                    Log.i(
-                        "jhal", "onCreate: ${tempIndex[index]}"
-                    )
-                }
-                tempValue.forEachIndexed { index, i ->
-                    Log.i(
-                        "jhal", "onCreate: ${tempValue[index]}"
-                    )
-                }*/
-                /* tempIndex.forEachIndexed { index, i ->
-                 Log.i(
-                     "expensesssss", "onCreate: ${tempIndex[index]}"
-                 )
-             }
-             tempValue.forEachIndexed { index, i ->
-                 Log.i(
-                     "expensesssss", "onCreate: ${tempValue[index]}"
-                 )
-             }*/
+
                 var count = 0
-                for (i in 0..41) {//proper hai
+                for (i in 0..41) {
                     if (count != resultIndex.size) {
                         if (i == blankSpaces + resultIndex[count] - 1) {
-                            //final result crafting
+
                             tempIncome.add(result[count].toString())
                             count++
                         } else {
@@ -262,11 +214,7 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
                         tempIncome.add("")
                     }
                 }
-                /*tempIncome.forEachIndexed { index, s ->
-                Log.i(
-                    "expensesssssss", "onCreate: $index : ${tempIncome[index]}"
-                )
-            }*/
+
             }
         }
         return tempIncome
@@ -278,23 +226,8 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
             monthYearTV?.text = monthYearFromDate(selectedDate)
             val daysInMonth: ArrayList<String> = daysInMonthArray(selectedDate)!!
             income = incomeInMonth(selectedDate, it)
-            /*for (i in income.indices) {
-                Log.i(
-                    "expensesss", "onCreate: $i : ${income[i]} + size : ${income.size}"
-                )
-            }*/
             expense = expenseInMonth(selectedDate, it)
-            /*for(i in expense.indices){
-                Log.i("what", "expenseInMonth: ${expense[i]} : ${expense.size}")
-            }*/
-           /*  for (i in expense.indices) {
-                 Log.i(
-                     "Cal", "onCreate: $i : ${expense[i]} + size : ${expense.size}"
-                 )
-             }*/
-           /* Log.i(
-                "Cal", "onCreate: ${expense.size} + size : ${income.size}"
-            )*/
+
             val calendarAdapter = CalendarAdapter(daysInMonth, income, expense, this)
             val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 7)
             calendarRecyclerView.layoutManager = layoutManager
@@ -313,7 +246,6 @@ class CalenderFragment : Fragment(R.layout.fragment_calender), CalendarAdapter.O
                 daysInMonthArray.add("")
             } else {
                 daysInMonthArray.add((i - dayOfWeek).toString())
-                Log.i("sfh", "daysInMonthArray: $i , $dayOfWeek = ${i - dayOfWeek}")
             }
         }
         return daysInMonthArray

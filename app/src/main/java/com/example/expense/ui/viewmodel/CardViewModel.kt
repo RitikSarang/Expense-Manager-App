@@ -6,8 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.expense.data.model.MonthCard
-import com.example.expense.data.repo.BoardingRepo
-import com.example.expense.data.model.SingleUser
 import com.example.expense.data.repo.CardRepo
 import kotlinx.coroutines.launch
 

@@ -15,7 +15,6 @@ import com.example.expense.data.model.Transaction
 import com.example.expense.data.model.Type
 import com.example.expense.readableFormat
 import com.example.expense.ui.viewmodel.TransactionViewModel
-import kotlinx.android.synthetic.main.cash_transaction_list_item.*
 import kotlinx.android.synthetic.main.fragment_add_transaction.*
 import java.util.*
 

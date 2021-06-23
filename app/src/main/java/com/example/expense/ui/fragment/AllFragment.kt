@@ -1,9 +1,7 @@
 package com.example.expense.ui.fragment
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -28,7 +26,7 @@ import java.util.*
 
 const val DATE = "DATE"
 class AllFragment : Fragment(R.layout.fragment_all) {
-    //private lateinit var viewModel: BoardingViewModel
+
     private lateinit var transactionViewModel: TransactionViewModel
 
     private val viewModel: BoardingViewModel by activityViewModels()
@@ -55,7 +53,7 @@ class AllFragment : Fragment(R.layout.fragment_all) {
         super.onViewCreated(view, savedInstanceState)
         transactionViewModel.getAllTransactions().observe(viewLifecycleOwner, {
             it?.let {
-                Log.i("budgetError", "onViewCreated: ${it.size} , $budget")
+
                 getTransactions(it, budget)
             }
         })

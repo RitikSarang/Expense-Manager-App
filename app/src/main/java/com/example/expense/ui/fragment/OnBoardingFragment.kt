@@ -22,7 +22,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
         const val LOGGED = "LOGGED_SUCCESS"
     }
 
-    //lateinit var viewModel: BoardingViewModel
+
     private val viewModel : BoardingViewModel by activityViewModels()
 
 

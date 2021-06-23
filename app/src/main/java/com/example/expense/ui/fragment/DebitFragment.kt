@@ -1,4 +1,4 @@
-package com.example.expense
+package com.example.expense.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,12 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.expense.R
 import com.example.expense.data.model.Transaction
 import com.example.expense.ui.adapter.CreditAdapter
 import com.example.expense.ui.viewmodel.BoardingViewModel
 import com.example.expense.ui.viewmodel.TransactionViewModel
-import kotlinx.android.synthetic.main.fragment_credit.*
 import kotlinx.android.synthetic.main.fragment_credit.rec_listTransactions
-import kotlinx.android.synthetic.main.fragment_credit.txtErrors
 import kotlinx.android.synthetic.main.fragment_credit.txtTotal
 import kotlinx.android.synthetic.main.fragment_debit.*
 import java.util.*
